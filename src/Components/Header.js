@@ -12,13 +12,17 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
+import {Tab , Tabs} from "@mui/material";
 
-const pages = ["Products", "Pricing", "Blog"];
+
+import { NavLink , Link } from "react-router-dom";
+
+const pages = ["Contact", "About"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 const ResponsiveAppBar = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [anchorElNav, setAnchorElNav] = React.useState("/");
+  const [anchorElUser, setAnchorElUser] = React.useState("/");
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -48,18 +52,18 @@ const ResponsiveAppBar = () => {
           >
             <MenuIcon />
           </IconButton>
-          <img
-            src="uni_gadgets.png"
-            alt="logo"
-            component="a"
-            style={{ width: "40px", height: "30px" , textDecoration: "none"}}
-            href="http://localhost:3000/"
-          />
+          {/* <Link to="/">
+            <img
+              src="uni_gadgets.png"
+              alt="logo"
+              component="a"
+              style={{ width: "40px", height: "30px", textDecoration: "none" }}
+            />
+          </Link> */}
           <Typography
             variant="h6"
             noWrap
             component="a"
-            href="http://localhost:3000/"
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
@@ -72,44 +76,6 @@ const ResponsiveAppBar = () => {
           >
             uniGadgets
           </Typography>
-
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: "block", md: "none" },
-              }}
-            >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-          <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
@@ -126,10 +92,24 @@ const ResponsiveAppBar = () => {
               textDecoration: "none",
             }}
           >
-            LOGO
+            uniGadgets
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
+            {/* <Link to="/contacts"> */}
+              <Button
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: "white", display: "block" }}
+              >
+                CONTACT US
+              </Button>
+            {/* </Link> */}
+            <Button
+              onClick={handleCloseNavMenu}
+              sx={{ my: 2, color: "white", display: "block" }}
+            >
+              ABOUT
+            </Button>
+            {/* {pages.map((page) => (
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
@@ -137,7 +117,7 @@ const ResponsiveAppBar = () => {
               >
                 {page}
               </Button>
-            ))}
+            ))} */}
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>

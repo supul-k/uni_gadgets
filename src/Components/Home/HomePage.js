@@ -3,7 +3,7 @@ import React from "react";
 const HomePage = () => {
   return (
     <div>
-        homepage
+        <h1 style={{textAlign: 'center'}}>This is Home Page</h1>
     </div>
   )
 };
