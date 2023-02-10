@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Link as RouterLink } from 'react-router-dom';
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -11,34 +12,9 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
-import {Tab , Tabs} from "@mui/material";
+import Link from '@mui/material/Link';
 
-
-import { NavLink , Link } from "react-router-dom";
-
-const pages = ["Contact", "About"];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
-
-const ResponsiveAppBar = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState("/");
-  const [anchorElUser, setAnchorElUser] = React.useState("/");
-
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
+function Header() {
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
@@ -52,14 +28,14 @@ const ResponsiveAppBar = () => {
           >
             <MenuIcon />
           </IconButton>
-          {/* <Link to="/">
+          <Link component={RouterLink} to="/">
             <img
               src="uni_gadgets.png"
               alt="logo"
               component="a"
               style={{ width: "40px", height: "30px", textDecoration: "none" }}
             />
-          </Link> */}
+          </Link>
           <Typography
             variant="h6"
             noWrap
@@ -95,58 +71,39 @@ const ResponsiveAppBar = () => {
             uniGadgets
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {/* <Link to="/contacts"> */}
+            <Link component={RouterLink} to="/contacts">
               <Button
-                onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
                 CONTACT US
               </Button>
-            {/* </Link> */}
+            </Link>
             <Button
-              onClick={handleCloseNavMenu}
               sx={{ my: 2, color: "white", display: "block" }}
             >
               ABOUT
-            </Button>
-            {/* {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                {page}
-              </Button>
-            ))} */}
+            </Button>       
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+              <IconButton  sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
               </IconButton>
             </Tooltip>
             <Menu
               sx={{ mt: "45px" }}
               id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+                <MenuItem key={1} >
+                  <Typography textAlign="center">Profile</Typography>
                 </MenuItem>
-              ))}
+                <MenuItem key={2} >
+                  <Typography textAlign="center">Log Out</Typography>
+                </MenuItem>
+                <MenuItem key={3} >
+                  <Typography textAlign="center">Profile</Typography>
+                </MenuItem>
             </Menu>
           </Box>
         </Toolbar>
@@ -154,4 +111,6 @@ const ResponsiveAppBar = () => {
     </AppBar>
   );
 };
-export default ResponsiveAppBar;
+export default Header;
+
+
