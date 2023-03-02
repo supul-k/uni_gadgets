@@ -1,11 +1,10 @@
 import Navbar from "./Components/Header/Navbar";
-import Sidebar from "./Components/Header/Sidebar";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <Navbar />
-      <Sidebar />
+      < Navbar />
+      
     </div>
   );
 }
