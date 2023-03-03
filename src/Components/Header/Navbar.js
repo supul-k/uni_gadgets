@@ -9,8 +9,10 @@ import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import AccountCircle from "@mui/icons-material/AccountCircle";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import CssBaseline from "@mui/material/CssBaseline";
+import StyledBadge from "@mui/material/Badge";
 
 import Sidebar from "./Sidebar";
 
@@ -120,6 +122,14 @@ const Navbar = () => {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
+      <MenuItem>
+        <IconButton aria-label="cart">
+          <StyledBadge badgeContent={4} color="secondary">
+            <ShoppingCartIcon sx={{ color: "black" }} />
+          </StyledBadge>
+        </IconButton>
+      </MenuItem>
+
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
           size="large"
@@ -130,7 +140,6 @@ const Navbar = () => {
         >
           <AccountCircle />
         </IconButton>
-        <p>Profile</p>
       </MenuItem>
     </Menu>
   );
@@ -143,9 +152,14 @@ const Navbar = () => {
         sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
       >
         <Toolbar sx={{ height: "75px", backgroundColor: "black" }}>
-          <img src="logo.png" alt="logo" sx={{ display: { xs: 'none', md: 'flex' }, mr: 1}} style={{ width: '200px'}}/>
-          <Search>
-            <SearchIconWrapper>
+          <img
+            src="./logo.png"
+            alt="logo"
+            sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}
+            style={{ width: "200px" }}
+          />
+          <Search style={{ alignItems : 'center' , width : '100%'}}>
+            <SearchIconWrapper sx={{color: 'white'}}>
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
@@ -155,6 +169,13 @@ const Navbar = () => {
           </Search>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
+            <MenuItem>
+              <IconButton aria-label="cart">
+                <StyledBadge badgeContent={4} color="secondary">
+                  <ShoppingCartIcon sx={{ color: "white" }} />
+                </StyledBadge>
+              </IconButton>
+            </MenuItem>
             <IconButton
               size="large"
               edge="end"

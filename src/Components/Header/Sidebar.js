@@ -8,13 +8,11 @@ import {
   ListItemText,
   Divider,
 } from "@mui/material";
-import InboxIcon from "@mui/icons-material/Inbox";
-import MailIcon from "@mui/icons-material/Mail";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import SensorsIcon from "@mui/icons-material/Sensors";
-import EdgesensorHighIcon from '@mui/icons-material/EdgesensorHigh';
-import SensorOccupiedIcon from '@mui/icons-material/SensorOccupied';
+import EdgesensorHighIcon from "@mui/icons-material/EdgesensorHigh";
+import SensorOccupiedIcon from "@mui/icons-material/SensorOccupied";
 
 const Sidebar = () => {
   const drawerWidth = 240;
@@ -43,7 +41,7 @@ const Sidebar = () => {
               {ListOne.map((text, index) => (
                 <ListItem key={text} disablePadding>
                   <ListItemButton>
-                    <ListItemIcon >
+                    <ListItemIcon>
                       {index === 0 ? (
                         <SensorsIcon />
                       ) : index === 1 ? (
@@ -65,7 +63,13 @@ const Sidebar = () => {
                 <ListItem key={text} disablePadding>
                   <ListItemButton>
                     <ListItemIcon>
-                      {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                      {index === 0 ? (
+                        <SensorsIcon />
+                      ) : index === 1 ? (
+                        <EdgesensorHighIcon />
+                      ) : (
+                        <SensorsIcon />
+                      )}
                     </ListItemIcon>
                     <ListItemText primary={text} />
                   </ListItemButton>
@@ -93,7 +97,13 @@ const Sidebar = () => {
                 <ListItem key={text} disablePadding>
                   <ListItemButton sx={{ overflow: "auto" }}>
                     <ListItemIcon>
-                      {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                      {index === 0 ? (
+                        <SensorsIcon />
+                      ) : index === 1 ? (
+                        <EdgesensorHighIcon />
+                      ) : (
+                        <SensorsIcon />
+                      )}
                     </ListItemIcon>
                   </ListItemButton>
                 </ListItem>
@@ -105,7 +115,13 @@ const Sidebar = () => {
                 <ListItem key={text} disablePadding>
                   <ListItemButton>
                     <ListItemIcon>
-                      {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                      {index === 0 ? (
+                        <SensorsIcon />
+                      ) : index === 1 ? (
+                        <EdgesensorHighIcon />
+                      ) : (
+                        <SensorsIcon />
+                      )}
                     </ListItemIcon>
                   </ListItemButton>
                 </ListItem>
